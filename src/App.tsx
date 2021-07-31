@@ -17,6 +17,7 @@ import MoreTab from './pages/tabs/MoreTab';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
+import styled from 'styled-components';
 
 /* Basic CSS for apps built with Ionic */
 import '@ionic/react/css/normalize.css';
@@ -34,8 +35,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+const StyledIonApp = styled(IonApp)`
+    max-width: 750px;
+    min-width: 320px;
+    background-color: black;
+`;
+
 const App: React.FC = () => (
-    <IonApp>
+    <StyledIonApp>
         <IonReactRouter>
             <IonTabs>
                 <IonRouterOutlet>
@@ -68,7 +75,7 @@ const App: React.FC = () => (
                 </IonTabBar>
             </IonTabs>
         </IonReactRouter>
-    </IonApp>
+    </StyledIonApp>
 );
 
 export default App;
