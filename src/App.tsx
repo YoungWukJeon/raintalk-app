@@ -36,9 +36,9 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 const StyledIonApp = styled(IonApp)`
-    max-width: 750px;
+    max-width: 500px;
     min-width: 320px;
-    background-color: black;
+    margin: 0 auto;
 `;
 
 const App: React.FC = () => (
