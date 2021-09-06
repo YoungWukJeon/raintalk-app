@@ -3,21 +3,23 @@ import { styled } from '../../stitches.config';
 
 const ItemWrapper = styled("div", {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    margin: '5px 0'
 });
 
 const Thumbnail = styled("div", {
     display: 'flex',
     width: '60px',
     height: '60px',
-    backgroundColor: 'rgb(90, 210, 210)'
 });
 
 const ItemContent = styled("div", {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'rgb(180, 90, 210)'
+    backgroundColor: 'pink',
+    flex: 1,
+    padding: '5px'
 });
 
 const ItemInfoContent = styled("div", {
@@ -33,7 +35,9 @@ const JoinedUserNum = styled("div", {
 });
 
 const LastChattedAt = styled("div", {
-    display: 'inline-flex'
+    display: 'flex',
+    flex: 1,
+    flexFlow: 'row-reverse'
 });
 
 const ItemMessageContent = styled("div", {
@@ -55,7 +59,9 @@ interface IChatRoomItemProps {
 const ChatRoomItem: React.FC<IChatRoomItemProps> = ({thumbnail, name, joinedUserNum, lastChattedAt, lastChatMessage}) => {
     return (
         <ItemWrapper>
-            <Thumbnail />
+            <Thumbnail>
+                <img src={thumbnail} />
+            </Thumbnail>
             <ItemContent>
                 <ItemInfoContent>
                     <Name>{name}</Name>

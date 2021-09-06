@@ -1,19 +1,38 @@
 import React from 'react';
 import ChatRoomItem from "./ChatRoomItem";
 
-interface ChatRoomProps {
+export class ChatRoomInfo {
+    thumbnail: string;
+    name: string;
+    joinedUserNum: number;
+    lastChattedAt: string;
+    lastChatMessage: string;
+
+    constructor(thumbnail: string, name: string, joinedUserNum: number, lastChattedAt: string, lastChatMessage: string) {
+        this.thumbnail = thumbnail;
+        this.name = name;
+        this.joinedUserNum = joinedUserNum;
+        this.lastChattedAt = lastChattedAt;
+        this.lastChatMessage = lastChatMessage;
+    }
 }
 
-const ChatRoom: React.FC<ChatRoomProps> = ({}) => {
+interface IChatRoomProps {
+    chatRoomInfos: Array<ChatRoomInfo>
+}
+
+const ChatRoom: React.FC<IChatRoomProps> = ({chatRoomInfos}) => {
     return (
         <div>
-            <ChatRoomItem
-                thumbnail={""}
-                name={"채팅방 이름"}
-                joinedUserNum={5}
-                lastChattedAt={"오후 9:46"}
-                lastChatMessage={"넵!"}
-            />
+            {chatRoomInfos.map(chatRoomInfo =>
+                <ChatRoomItem
+                    thumbnail={chatRoomInfo.thumbnail}
+                    name={chatRoomInfo.name}
+                    joinedUserNum={chatRoomInfo.joinedUserNum}
+                    lastChattedAt={chatRoomInfo.lastChattedAt}
+                    lastChatMessage={chatRoomInfo.lastChatMessage}
+                />
+            )}
         </div>
     )
 }
