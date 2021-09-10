@@ -1,23 +1,25 @@
 import React from 'react';
 import { styled } from '../../stitches.config';
 
+import CircleImage from '../styled/CircleImage';
+
 const ItemWrapper = styled("div", {
     display: 'flex',
     flexDirection: 'row',
-    margin: '5px 0'
+    margin: '15px 10px'
 });
 
 const Thumbnail = styled("div", {
     display: 'flex',
     width: '60px',
     height: '60px',
+    marginRight: '10px'
 });
 
 const ItemContent = styled("div", {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: 'pink',
     flex: 1,
     padding: '5px'
 });
@@ -60,7 +62,7 @@ const ChatRoomItem: React.FC<IChatRoomItemProps> = ({thumbnail, name, joinedUser
     return (
         <ItemWrapper>
             <Thumbnail>
-                <img src={thumbnail} />
+                <CircleImage src={thumbnail} />
             </Thumbnail>
             <ItemContent>
                 <ItemInfoContent>
