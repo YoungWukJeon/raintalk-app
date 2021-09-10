@@ -1,6 +1,5 @@
 import React from "react";
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import './ChatTab.css';
 import ChatRoom, { ChatRoomInfo } from '../../components/chat/ChatRoom';
 
 import faker from 'faker';
