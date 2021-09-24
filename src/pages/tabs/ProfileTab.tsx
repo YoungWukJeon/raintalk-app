@@ -11,7 +11,7 @@ const profileInfo = {
     backgroundImage: faker.image.nature(),
     profileImage: faker.image.avatar(),
     userName: '개발자 카니'
-}
+};
 
 const BackgroundWrapper = styled('div', {
     display: 'flex',
