@@ -10,7 +10,7 @@ import faker from 'faker';
 const profileInfo = {
     backgroundImage: faker.image.nature(),
     profileImage: faker.image.avatar(),
-    userName: '개발자 카니'
+    userName: '개발자 카니',
 };
 
 const BackgroundWrapper = styled('div', {
