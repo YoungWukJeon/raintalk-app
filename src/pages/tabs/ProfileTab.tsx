@@ -8,14 +8,28 @@ import CircleImage from '../../components/styled/CircleImage';
 import faker from 'faker';
 
 const profileInfo = {
+    backgroundImage: faker.image.nature(),
     profileImage: faker.image.avatar(),
     userName: '개발자 카니'
 }
 
-const ImageWrapper = styled('div', {
+const BackgroundWrapper = styled('div', {
     display: 'flex',
     width: '100%'
-})
+});
+
+const BackgroundImage = styled('img', {
+    objectFit: 'cover',
+    height: 'calc(100vh - 113px)'
+});
+
+const ImageWrapper = styled('div', {
+    display: 'flex',
+    position: 'absolute',
+    width: '100%',
+    justifyContent: 'center',
+    bottom: '80px'
+});
 
 const ProfileTab: React.FC = () => {
     return (
@@ -33,9 +47,13 @@ const ProfileTab: React.FC = () => {
                 </IonHeader>
 
                 <IonContent>
-                    <IonAvatar>
-                        <img src={profileInfo.profileImage} />
-                    </IonAvatar>
+                    <BackgroundWrapper>
+                        <BackgroundImage src={profileInfo.backgroundImage} alt="프로필 배경 이미지"/>
+                    </BackgroundWrapper>
+
+                    <ImageWrapper>
+                        <CircleImage src={profileInfo.profileImage} alt="프로필 이미지" width="100px" />
+                    </ImageWrapper>
                 </IonContent>
             </IonContent>
         </IonPage>
