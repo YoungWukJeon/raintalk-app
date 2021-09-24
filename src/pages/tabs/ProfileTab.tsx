@@ -1,5 +1,5 @@
 import React from "react";
-import { IonAvatar, IonContent, IonHeader, IonImg, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import { styled } from '../../stitches.config';
 
