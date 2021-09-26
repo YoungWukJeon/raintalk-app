@@ -3,7 +3,7 @@ import { styled } from '../../stitches.config';
 
 import CircleImage from '../styled/CircleImage';
 
-const ItemWrapper = styled("div", {
+const ItemWrapper = styled("li", {
     display: 'flex',
     flexDirection: 'row',
     margin: '15px 10px'
@@ -25,42 +25,46 @@ const ItemContent = styled("div", {
 });
 
 const ItemInfoContent = styled("div", {
-    display: 'flex'
+    display: 'flex',
+    alignItems: 'center'
 });
 
-const Name = styled("div", {
-    display: 'inline-flex'
+const Name = styled("strong", {
+    display: 'inline-flex',
 });
 
-const JoinedUserNum = styled("div", {
-    display: 'inline-flex'
+const JoinedUserNum = styled("span", {
+    display: 'inline-flex',
+    marginLeft: '8px',
+    fontSize: '12px',
+    color: 'rgba(180, 180, 180, 1)'
 });
 
-const LastChattedAt = styled("div", {
+const LastChattedAt = styled("span", {
     display: 'flex',
     flex: 1,
-    flexFlow: 'row-reverse'
+    flexFlow: 'row-reverse',
+    fontSize: '12px',
+    color: 'rgba(120, 120, 120, 1)'
 });
 
-const ItemMessageContent = styled("div", {
-    display: 'flex'
-});
-
-const LastChatMessage = styled("div", {
-    display: 'inline-flex'
+const LastChatMessage = styled("p", {
+    margin: '0',
+    color: 'rgba(90, 90, 90, 1)'
 });
 
 interface IChatRoomItemProps {
-    thumbnail: string,
+    no: number,
     name: string,
+    thumbnail: string,
     joinedUserNum: number,
     lastChattedAt: string,
     lastChatMessage: string
 }
 
-const ChatRoomItem: React.FC<IChatRoomItemProps> = ({thumbnail, name, joinedUserNum, lastChattedAt, lastChatMessage}) => {
+const ChatRoomItem: React.FC<IChatRoomItemProps> = ({no, name, thumbnail, joinedUserNum, lastChattedAt, lastChatMessage}) => {
     return (
-        <ItemWrapper>
+        <ItemWrapper key={no}>
             <Thumbnail>
                 <CircleImage src={thumbnail} />
             </Thumbnail>
@@ -70,11 +74,8 @@ const ChatRoomItem: React.FC<IChatRoomItemProps> = ({thumbnail, name, joinedUser
                     <JoinedUserNum>{joinedUserNum}</JoinedUserNum>
                     <LastChattedAt>{lastChattedAt}</LastChattedAt>
                 </ItemInfoContent>
-                <ItemMessageContent>
-                    <LastChatMessage>{lastChatMessage}</LastChatMessage>
-                </ItemMessageContent>
+                <LastChatMessage>{lastChatMessage}</LastChatMessage>
             </ItemContent>
-
         </ItemWrapper>
     )
 }
