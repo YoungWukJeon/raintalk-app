@@ -56,7 +56,7 @@ const App: React.FC = () => (
                         <MoreTab />
                     </Route>
                     <Route exact path="/">
-                        <Redirect to="/profile"/>
+                        <Redirect to="/chat"/>
                     </Route>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">

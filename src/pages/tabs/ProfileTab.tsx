@@ -23,12 +23,19 @@ const BackgroundImage = styled('img', {
     height: 'calc(100vh - 113px)'
 });
 
-const ImageWrapper = styled('div', {
+const DescriptionWrapper = styled('div', {
     display: 'flex',
     position: 'absolute',
     width: '100%',
-    justifyContent: 'center',
-    bottom: '80px'
+    flexDirection: 'column',
+    alignItems: 'center',
+    bottom: '50px'
+});
+
+const UserNameWrapper = styled('div', {
+    marginTop: '5px',
+    color: 'rgba(255, 255, 255, 1)',
+    fontWeight: 'bold'
 });
 
 const ProfileTab: React.FC = () => {
@@ -48,12 +55,13 @@ const ProfileTab: React.FC = () => {
 
                 <IonContent>
                     <BackgroundWrapper>
-                        <BackgroundImage src={profileInfo.backgroundImage} alt="프로필 배경 이미지"/>
+                        <BackgroundImage src={profileInfo.backgroundImage} alt="프로필 배경 이미지" />
                     </BackgroundWrapper>
 
-                    <ImageWrapper>
+                    <DescriptionWrapper>
                         <CircleImage src={profileInfo.profileImage} alt="프로필 이미지" width="100px" />
-                    </ImageWrapper>
+                        <UserNameWrapper>{profileInfo.userName}</UserNameWrapper>
+                    </DescriptionWrapper>
                 </IonContent>
             </IonContent>
         </IonPage>
