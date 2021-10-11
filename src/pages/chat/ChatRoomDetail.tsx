@@ -1,10 +1,9 @@
 import React from "react";
-import { IonContent, IonHeader, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
 
 import faker from 'faker';
 import { ChattingInfo, User } from "../../components/chat/model/ChattingInfo";
-import ChatItem from "../../components/chat/ChatItem";
-import { Redirect, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 
 const chattingInfos: Array<ChattingInfo> = ''.repeat(5)
     .split('')
@@ -17,22 +16,24 @@ const chattingInfos: Array<ChattingInfo> = ''.repeat(5)
 
 const ChatRoomDetail: React.FC = () => {
     return (
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonTitle>채팅</IonTitle>
-                </IonToolbar>
-            </IonHeader>
-            <IonContent fullscreen>
-                <IonHeader collapse="condense">
-                    <IonToolbar>
-                        <IonTitle size="large">채팅</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-
-
-            </IonContent>
-        </IonPage>
+        // <Router>
+        //     <Route path={'/chat/:chatRoomId'} >
+                <IonPage>
+                    <IonHeader>
+                        <IonToolbar>
+                            <IonTitle>채팅</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                    <IonContent fullscreen>
+                        <IonHeader collapse="condense">
+                            <IonToolbar>
+                                <IonTitle size="large">채팅</IonTitle>
+                            </IonToolbar>
+                        </IonHeader>
+                    </IonContent>
+                </IonPage>
+            // <Route>
+        // </Router>
     );
 };
 

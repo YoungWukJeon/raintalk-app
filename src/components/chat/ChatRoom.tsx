@@ -3,8 +3,7 @@ import ChatRoomItem from "./ChatRoomItem";
 import { styled } from "../../stitches.config";
 
 import { ChatRoomInfo } from "./model/ChatRoom";
-import { Route } from "react-router-dom";
-import { IonRouterOutlet } from "@ionic/react";
+import {BrowserRouter as Router, Link} from "react-router-dom";
 
 interface IChatRoomProps {
     chatRoomInfos: Array<ChatRoomInfo>
@@ -16,10 +15,10 @@ const ChatRoomList = styled('ul', {
 
 const ChatRoom: React.FC<IChatRoomProps> = ({chatRoomInfos}) => {
     return (
-        <IonRouterOutlet>
+        <Router>
             <ChatRoomList>
                 {chatRoomInfos.map(chatRoomInfo =>
-                    <Route exact path={'/' + chatRoomInfo.chatRoomId} key={chatRoomInfo.chatRoomId}>
+                    <Link to={`/chat/${chatRoomInfo.chatRoomId}`} key={chatRoomInfo.chatRoomId}>
                         <ChatRoomItem
                             id={chatRoomInfo.chatRoomId}
                             thumbnail={chatRoomInfo.thumbnail}
@@ -28,10 +27,10 @@ const ChatRoom: React.FC<IChatRoomProps> = ({chatRoomInfos}) => {
                             lastChattedAt={chatRoomInfo.lastChattedAt}
                             lastChatMessage={chatRoomInfo.lastChatMessage}
                         />
-                    </Route>
+                    </Link>
                 )}
             </ChatRoomList>
-        </IonRouterOutlet>
+        </Router>
     )
 }
 
