@@ -54,7 +54,7 @@ const LastChatMessage = styled("p", {
 });
 
 interface IChatRoomItemProps {
-    no: number,
+    id: string,
     name: string,
     thumbnail: string,
     joinedUserNum: number,
@@ -62,9 +62,9 @@ interface IChatRoomItemProps {
     lastChatMessage: string
 }
 
-const ChatRoomItem: React.FC<IChatRoomItemProps> = ({no, name, thumbnail, joinedUserNum, lastChattedAt, lastChatMessage}) => {
+const ChatRoomItem: React.FC<IChatRoomItemProps> = ({id, name, thumbnail, joinedUserNum, lastChattedAt, lastChatMessage}) => {
     return (
-        <ItemWrapper key={no}>
+        <ItemWrapper key={id}>
             <Thumbnail>
                 <CircleImage src={thumbnail} />
             </Thumbnail>
