@@ -1,21 +1,8 @@
 import React from 'react';
 import ChatRoomItem from "./ChatRoomItem";
-
-export class ChatRoomInfo {
-    thumbnail: string;
-    name: string;
-    joinedUserNum: number;
-    lastChattedAt: string;
-    lastChatMessage: string;
-
-    constructor(thumbnail: string, name: string, joinedUserNum: number, lastChattedAt: string, lastChatMessage: string) {
-        this.thumbnail = thumbnail;
-        this.name = name;
-        this.joinedUserNum = joinedUserNum;
-        this.lastChattedAt = lastChattedAt;
-        this.lastChatMessage = lastChatMessage;
-    }
-}
+import { ChatRoomInfo } from "./model/ChatRoom";
+import { Route } from "react-router-dom";
+import { IonRouterOutlet } from "@ionic/react";
 
 interface IChatRoomProps {
     chatRoomInfos: Array<ChatRoomInfo>
@@ -24,15 +11,19 @@ interface IChatRoomProps {
 const ChatRoom: React.FC<IChatRoomProps> = ({chatRoomInfos}) => {
     return (
         <div>
-            {chatRoomInfos.map(chatRoomInfo =>
-                <ChatRoomItem
-                    thumbnail={chatRoomInfo.thumbnail}
-                    name={chatRoomInfo.name}
-                    joinedUserNum={chatRoomInfo.joinedUserNum}
-                    lastChattedAt={chatRoomInfo.lastChattedAt}
-                    lastChatMessage={chatRoomInfo.lastChatMessage}
-                />
-            )}
+            <IonRouterOutlet>
+                {chatRoomInfos.map(chatRoomInfo =>
+                    <Route exact path={'/' + chatRoomInfo.chatRoomId}>
+                        <ChatRoomItem
+                            thumbnail={chatRoomInfo.thumbnail}
+                            name={chatRoomInfo.name}
+                            joinedUserNum={chatRoomInfo.joinedUserNum}
+                            lastChattedAt={chatRoomInfo.lastChattedAt}
+                            lastChatMessage={chatRoomInfo.lastChatMessage}
+                        />
+                    </Route>
+                )}
+            </IonRouterOutlet>
         </div>
     )
 }

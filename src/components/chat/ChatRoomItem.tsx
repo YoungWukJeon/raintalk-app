@@ -74,7 +74,6 @@ const ChatRoomItem: React.FC<IChatRoomItemProps> = ({thumbnail, name, joinedUser
                     <LastChatMessage>{lastChatMessage}</LastChatMessage>
                 </ItemMessageContent>
             </ItemContent>
-
         </ItemWrapper>
     )
 }
