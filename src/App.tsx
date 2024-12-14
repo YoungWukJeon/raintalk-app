@@ -41,23 +41,15 @@ const StyledIonApp = styled(IonApp, {
     margin: "0 auto"
 });
 
-const App: React.FC = () => (
-    <StyledIonApp>
+function App() {
+    return (<IonApp>
         <IonReactRouter>
             <IonTabs>
                 <IonRouterOutlet>
-                    <Route exact path="/profile">
-                        <ProfileTab />
-                    </Route>
-                    <Route exact path="/chat">
-                        <ChatTab />
-                    </Route>
-                    <Route path="/more">
-                        <MoreTab />
-                    </Route>
-                    <Route exact path="/">
-                        <Redirect to="/chat"/>
-                    </Route>
+                    <Redirect exact path="/" to="/chat"/>
+                    <Route exact path="/profile" render={() => <ProfileTab/>}/>
+                    <Route exact path="/chat" render={() => <ChatTab/>}/>
+                    <Route path="/more" render={() => <MoreTab/>}/>
                 </IonRouterOutlet>
                 <IonTabBar slot="bottom">
                     <IonTabButton tab="profile" href="/profile">
@@ -75,7 +67,7 @@ const App: React.FC = () => (
                 </IonTabBar>
             </IonTabs>
         </IonReactRouter>
-    </StyledIonApp>
-);
+    </IonApp>);
+}
 
 export default App;

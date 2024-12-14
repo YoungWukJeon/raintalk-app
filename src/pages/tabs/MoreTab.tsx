@@ -1,9 +1,9 @@
 import React from "react";
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import {IonContent, IonHeader, IonTitle, IonToolbar} from '@ionic/react';
 
 const MoreTab: React.FC = () => {
     return (
-        <IonPage>
+        <>
             <IonHeader>
                 <IonToolbar>
                     <IonTitle>더보기</IonTitle>
@@ -16,7 +16,7 @@ const MoreTab: React.FC = () => {
                     </IonToolbar>
                 </IonHeader>
             </IonContent>
-        </IonPage>
+        </>
     );
 };
 

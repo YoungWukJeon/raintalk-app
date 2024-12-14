@@ -1,14 +1,14 @@
 import React from "react";
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/react';
 
 import { styled } from '../../stitches.config';
 
 import CircleImage from '../../components/styled/CircleImage';
 
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 const profileInfo = {
-    backgroundImage: faker.image.nature(),
+    backgroundImage: faker.image.url(),
     profileImage: faker.image.avatar(),
     userName: '개발자 카니'
 };
@@ -39,7 +39,7 @@ const UserNameWrapper = styled('strong', {
 
 const ProfileTab: React.FC = () => {
     return (
-        <IonPage>
+        <>
             <IonHeader>
                 <IonToolbar>
                     <IonTitle>프로필</IonTitle>
@@ -63,7 +63,7 @@ const ProfileTab: React.FC = () => {
                     </DescriptionWrapper>
                 </IonContent>
             </IonContent>
-        </IonPage>
+        </>
     );
 };
 
